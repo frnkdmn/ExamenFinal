@@ -172,8 +172,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\banner_ventas.jpg" />
-    <Content Include="Imagenes\centro.jpg" />
+    <Content Include="Imagenes\banner.jpg" />
+    <Content Include="Imagenes\centro.png" />
     <Content Include="Models\RentCarEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>RentCarEntities.Context.cs</LastGenOutput>
