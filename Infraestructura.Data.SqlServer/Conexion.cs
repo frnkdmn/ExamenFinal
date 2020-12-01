@@ -15,7 +15,7 @@ namespace Infraestructura.Data.SqlServer
         public SqlConnection getConecta()
         {
             SqlConnection cn = new SqlConnection(ConfigurationManager.
-                                ConnectionStrings["cn"].ConnectionString);
+                                ConnectionStrings["cn1"].ConnectionString);
             return cn;
         }
     }
