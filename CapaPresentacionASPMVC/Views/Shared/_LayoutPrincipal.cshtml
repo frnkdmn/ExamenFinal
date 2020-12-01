@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <header>
+        <figure>
+            <img id="banner" src="~/Imagenes/banner_ventas.jpg" />
+        </figure>
+    </header>
+    <section id="columna1">
+        <nav class="menu">
+            <ul>
+                <li>@Html.ActionLink("Principal", "Index", "Cliente")</li>
+                <li>
+                    <a href="#">CLIENTE</a>
+                    <ul class="submenu">
+                        <li>
+                            @Html.ActionLink("LISTADO DE CLIENTES", "listadoClientes", "Cliente")
+                        </li>
+                        <li>
+                            @Html.ActionLink("LISTADO DE CLIENTESxDISTRITO", "listadoClientesxDistritito", "Cliente")
+                        </li>
+                        <li>
+                            @Html.ActionLink("REGISTRAR CLIENTE", "nuevoCliente", "Cliente")
+                        </li>
+                    </ul>
+                </li>
+                <li>@Html.ActionLink("Contactenos", "Contact", "Home")</li>
+            </ul>
+        </nav>
+    </section>
+    @RenderBody()
+    <footer>
+        <h6>Todos los derechos reservados @@MTR</h6>
+    </footer>
+</body>
+</html>

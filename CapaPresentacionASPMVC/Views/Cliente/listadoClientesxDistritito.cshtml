@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Dominio.Core.Entities.Cliente>
+
+@{
+    ViewBag.Title = "listadoClientesxDistritito";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>LISTADO DE CLIENTES POR DISTRITO</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <h5 class="control-label">Ingrese el Distrito</h5>
+        @Html.DropDownList("dis", (SelectList)ViewBag.distrito, "Seleccione[]", new { @class = "form-control col-md-2" })
+        <input class="btn btn-success" style="margin-left:30px" type="submit" value="BUSCAR" />
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>
+        </tr>
+    }
+
+</table>

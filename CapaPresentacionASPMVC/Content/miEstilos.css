@@ -1,0 +1,90 @@
+﻿body {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+}
+
+h2, h4, h6 {
+    font-family: Tahoma;
+    text-align: center;
+}
+
+.menu {
+    width: 1024px;
+    height: 6.5%;
+    background-color: aquamarine;
+}
+
+    .menu ul {
+        display: flex;
+        margin: auto;
+    }
+
+    .menu li {
+        list-style: none;
+        padding: 10px 20px;
+    }
+
+        .menu li:hover {
+            background-color: antiquewhite;
+            cursor: pointer;
+        }
+
+    .menu ul li ul {
+        flex-direction: column;
+        position: absolute;
+        background-color: black;
+        margin-top: 15px;
+        transform: rotateY(240deg) scale(0);
+        transition: all 1s;
+    }
+
+    .menu ul li:hover > ul {
+        transform: rotateY(0deg) scale(1);
+        transition: all 1s;
+        background-color: darkcyan;
+    }
+
+a {
+    color: yellow;
+}
+
+    a:link, a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: black;
+    }
+
+#banner {
+    width: 1024px;
+    height: 250px;
+}
+
+#central {
+    margin: auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid green;
+}
+
+footer {
+    background-color: aquamarine;
+    padding: 0px;
+    bottom: 0px;
+    width: 1024px;
+    height: 18px;
+    color: black;
+}
+
+#icono {
+    width: 20px;
+    height: 20px;
+}
+.btnDistrito{
+    margin-left: 100px;
+}

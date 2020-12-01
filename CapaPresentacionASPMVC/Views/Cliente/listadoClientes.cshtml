@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Dominio.Core.Entities.Cliente>
+
+@{
+    ViewBag.Title = "listadoClientes";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>LISTADO DE CLIENTES</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.distrito)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "modificaVendedor", new { id = item.codigo }, new { @class = "fas fa-edit fa-2x" })  |
+            @Html.ActionLink(" ", "detalleVendedor", new { id = item.codigo }, new { @class = "fas fa-list-alt fa-2x" }) |
+            @Html.ActionLink(" ", "eliminaVendedor", new { id = item.codigo }, new { @class = "fas fa-trash-alt fa-2x" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h6>
+    @for (int i = 0; i < (int)ViewBag.pag; i++)
+    {
+        @Html.ActionLink((i + 1).ToString(), "listadoClientes", new { p = i },
+        new { @class = "btn btn-primary" })
+    }
+</h6>

@@ -24,6 +24,7 @@ namespace CapaPresentacionASPMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/miEstilos.css",
                       "~/Content/site.css"));
         }
     }
