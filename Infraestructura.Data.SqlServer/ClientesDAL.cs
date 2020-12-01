@@ -91,6 +91,7 @@ namespace Infraestructura.Data.SqlServer
             cn.Close();
             return aClientesO;
         }
+        //Nuevo Cliente
         public string nuevoCliente(ClienteO objC)
         {
             cn = objCon.getConecta();
@@ -113,11 +114,56 @@ namespace Infraestructura.Data.SqlServer
                 mensaje = ex.Message;
                 throw;
             }
-
-
             cn.Close();
             return mensaje;
         }
-
+        //Modifica Cliente
+        public string modificarCliente(ClienteO objC)
+        {
+            cn = objCon.getConecta();
+            cn.Open();
+            string mensaje = "";
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_ACTUALIZACLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IDE", objC.codigo);
+                cmd.Parameters.AddWithValue("@APE", objC.apellido);
+                cmd.Parameters.AddWithValue("@NOM", objC.nombre);
+                cmd.Parameters.AddWithValue("@DNI", objC.dni);
+                cmd.Parameters.AddWithValue("@TEL", objC.telefono);
+                cmd.Parameters.AddWithValue("@DIST", objC.distrito);
+                int n = cmd.ExecuteNonQuery();
+                mensaje = n.ToString() + " Cliente Actualizado!!!";
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                throw;
+            }
+            cn.Close();
+            return mensaje;
+        }
+        public string eliminaCliente(int id)
+        {
+            cn = objCon.getConecta();
+            cn.Open();
+            string mensaje = "";
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_ELIMINACLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IDE", id);
+                int n = cmd.ExecuteNonQuery();
+                mensaje = n.ToString() + " Cliente Actualizado!!!";
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                throw;
+            }
+            cn.Close();
+            return mensaje;
+        }
     }
 }

@@ -1,19 +1,28 @@
 ﻿@model Dominio.Core.Entities.ClienteO
 
 @{
-    ViewBag.Title = "nuevoCliente";
+    ViewBag.Title = "modificaCliente";
     Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
 }
 
-<h2>REGISTRO CLIENTE</h2>
+<h2>MODIFICAR CLIENTE</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
+        <h4>ClienteO</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.codigo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.codigo, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.codigo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.apellido, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -49,15 +58,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.distrito, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.distrito, (SelectList)ViewBag.distrito, "Seleccione[]",
-               new { @class = "form-control" })
+                @Html.DropDownList("distrito", null,"SELECCIONE[]", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.distrito, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="REGISTRAR" class="btn btn-default" />
+                <input type="submit" value="MODIFICAR" class="btn btn-default" />
             </div>
         </div>
     </div>

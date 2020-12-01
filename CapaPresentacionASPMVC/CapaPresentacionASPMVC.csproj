@@ -171,10 +171,13 @@
     <Content Include="Views\Cliente\listadoClientes.cshtml" />
     <Content Include="Views\Cliente\nuevoCliente.cshtml" />
     <Content Include="Views\Cliente\listadoClientesxDistritito.cshtml" />
+    <Content Include="Views\Cliente\detalleCliente.cshtml" />
+    <Content Include="Views\Cliente\modificaCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

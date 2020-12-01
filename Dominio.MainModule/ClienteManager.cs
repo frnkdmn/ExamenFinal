@@ -15,6 +15,10 @@ namespace Dominio.MainModule
         {
             return objDAL.listClientes();
         }
+        public List<ClienteO> ListClientesO()
+        {
+            return objDAL.listClientesO();
+        }
         public List<Cliente> ListClientesxDistrtito(int dis)
         {
             return objDAL.listClientesxDistrtito(dis);
@@ -22,6 +26,14 @@ namespace Dominio.MainModule
         public string nuevoCliente(ClienteO objO)
         {
             return objDAL.nuevoCliente(objO);
+        }
+        public string modificaCliente(ClienteO objO)
+        {
+            return objDAL.modificarCliente(objO);
+        }
+        public string eliminaCliente(int id)
+        {
+            return objDAL.eliminaCliente(id);
         }
     }
 }

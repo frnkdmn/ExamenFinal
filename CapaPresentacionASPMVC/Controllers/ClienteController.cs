@@ -37,8 +37,8 @@ namespace CapaPresentacionASPMVC.Controllers
             ViewBag.pag = pag;
             return View(aCleinte.Skip(p * filas).Take(filas));
         }
-        //listado clientes
-        public ActionResult listadoClientesxDistritito(int dis=0,int p = 0)
+        //listado clientesxDistrito
+        public ActionResult listadoClientesxDistritito(int dis = 0, int p = 0)
         {
             ViewBag.dis = dis;
             ViewBag.distrito = new SelectList(managerDistrito.listDistrito(), "codigo", "nombre");
@@ -76,6 +76,41 @@ namespace CapaPresentacionASPMVC.Controllers
             ViewBag.mensaje = managerCliente.nuevoCliente(objO);
             ViewBag.distrito = new SelectList(managerDistrito.listDistrito(), "codigo", "nombre");
             return View(objO);
+        }
+        //Modificar cliente
+        public ActionResult modificaCliente(int id)
+        {
+            ClienteO objO = managerCliente.ListClientesO().Where(
+                            v => v.codigo == id).FirstOrDefault();
+            ViewBag.distrito = new SelectList(managerDistrito.listDistrito(), "codigo", "nombre", objO.distrito);
+            return View(objO);
+        }
+        [HttpPost]
+        public ActionResult modificaCliente(ClienteO objO)
+        {
+            if (!ModelState.IsValid)
+            {
+                ViewBag.distrito = new SelectList(managerDistrito.listDistrito(), "codigo", "nombre", objO.distrito);
+                return View(objO);
+            }
+            ViewBag.mensaje = managerCliente.modificaCliente(objO);
+            ViewBag.distrito = new SelectList(managerDistrito.listDistrito(), "codigo", "nombre", objO.distrito);
+            return View(objO);
+        }
+        //Detalle Cliente
+        public ActionResult detalleCliente(int id)
+        {
+            Cliente objC = managerCliente.ListClientes().Where(
+                v => v.codigo == id).FirstOrDefault();
+            return View(objC);
+        }
+        //Elimina Cliente
+        public ActionResult eliminaCliente(int id)
+        {
+            ClienteO objO = managerCliente.ListClientesO().Where(
+                            v => v.codigo == id).FirstOrDefault();
+            ViewBag.mensaje = managerCliente.eliminaCliente(id);
+            return RedirectToAction("listadoClientes");
         }
     }
 }
